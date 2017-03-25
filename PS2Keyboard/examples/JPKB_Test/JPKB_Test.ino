@@ -1,8 +1,13 @@
 // ＰＳ２日本語キーボードのテスト
 #include <PS2Keyboard.h>
 
+#if defined (__STM32F1__)   
+const int DataPin = PB8 ;  // PS2キーボードのDATAピンに接続
+const int IRQpin  = PB7 ;  // PS2キーボードのCLKピンに接続
+#else
 const int DataPin = 4 ;  // PS2キーボードのDATAピンに接続
 const int IRQpin  = 3 ;  // PS2キーボードのCLKピンに接続
+#endif
 
 int kana_flg = 0 ;
 
@@ -11,7 +16,11 @@ PS2Keyboard keyboard ;
 void setup()
 {
      keyboard.begin(DataPin, IRQpin) ;
-     Serial.begin(9600) ;
+
+     Serial.begin(115200);
+#if defined (__STM32F1__)   
+  while (!Serial.isConnected()) delay(100);
+#endif
      Serial.println("International Keyboard Test:") ;
 }
 void loop()
