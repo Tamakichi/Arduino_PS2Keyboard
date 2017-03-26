@@ -25,7 +25,7 @@
   Modified by Paul Stoffregen <paul@pjrc.com> June 2010
 */
    
-#include <PS2Keyboard.h>
+#include <PS2Keyboard_stm32.h>
 #if defined (__STM32F1__)   
 const int DataPin = PB8 ;  // PS2キーボードのDATAピンに接続
 const int IRQpin  = PB7 ;  // PS2キーボードのCLKピンに接続

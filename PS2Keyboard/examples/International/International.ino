@@ -8,7 +8,7 @@
     in future versions of this library.
 */
    
-#include <PS2Keyboard.h>
+#include <PS2Keyboard_stm32.h>
 
 #if defined (__STM32F1__)   
 const int DataPin = PB8 ;  // PS2キーボードのDATAピンに接続
